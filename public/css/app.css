@@ -1,16 +1,34 @@
 a{
     text-decoration: none;
 }
-.log{
+.login-left{
+    border-radius: 20px;
+    width: 45%;
+    height: 80%;
+}
+.login-image{
+    width: 45%;
+    height: 50%;
+}
+.left-side{
+    float: left;
+    height: 400px;
+    width: 50%;
+    background-color:rgb(162, 82, 179);
     border-radius: 20px;
 }
 
 .bgcolor{
-    background-color: paleturquoise;
+    background-color: rgb(229, 213, 241);
 }
-
+.colorBg{
+    background-color: rgb(229, 213, 241);
+}
 .bgButton{
-    background-color: paleturquoise;
+    background-color: rgb(162, 82, 179);
+    width: 90%;
+    border-radius: 20px;
+    margin: 5%;
 }
 .posText{
     display: flex;
