@@ -3,20 +3,20 @@
 @section('content')
 
 <div class="container bgcolor shadow-lg p-lg-5 col-md-12">
-        <!-- <h1 class="text-center">Chatter en Ligne</h1> -->
         <div class="row">
             <div class="container mt-lg-5 colorBg login-left col-md-6 col-sm-12 col-xl-6 col-lg-12 col-12">
                 <img class="container image-cadre" src="/images/imageLogin.jpg" alt="test"/>
                 <a href="/registration"><span class="posText mb-2 mt-2">Create Account</span></a>
-                <form action="">
-                
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+
                     <div class="form-group container">
-                        
+
                         <input class="form-control" type="number" placeholder="Phone Number" name="telephone" value="" required>
                     </div>
-                
+
                     <div class="form-group container">
-                       
+
                         <input class="form-control" type="password" name="password" placeholder="Password" value="" required>
                     </div>
                     <a href="#"><span class="posText mt-2 ">Forgot password</span></a>

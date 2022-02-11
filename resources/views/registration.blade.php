@@ -6,7 +6,7 @@
             <div class="container shadow left-side col-md-6 col-sm-12 col-xl-6 col-lg-12">
                 <div class="textLeft">
                     <h4 class="container mt-5 mb-3 text-white">
-                       Bienvenu sur votre appli de chatte sur vos dessins Animés préférés
+                       Bienvenu sur votre appli de chatte sur vos dessins Animés préférés {{ __('Register') }}
                     </h4>
                     <i><h5 class="container text-white">
                         Veuillez saissir vos informations pour créer votre compte !
@@ -25,21 +25,20 @@
                 <form action="_register" method="post">
                     @csrf
                     <div class="form-group container">
-                        
-                        <input class="form-control" type="text" placeholder="Full Name" name="fullName" value="" required>
+
+                        <input class="form-control" type="text" placeholder="Full Name" name="fullname" value="" required>
                     </div>
                     <div class="form-group container">
-                        
+
                         <input class="form-control" type="email" placeholder="Email" name="email" value="" required>
                     </div>
-                
                     <div class="form-group container">
-                        
-                        <input class="form-control" type="number" placeholder="Phone Number" name="telephone" value="" required>
+
+                        <input class="form-control" type="number" placeholder="Phone Number" name="phone_number" value="" required>
                     </div>
-                
+
                     <div class="form-group container">
-                       
+
                         <input class="form-control" type="password" name="password" placeholder="Password" value="" required>
                     </div>
                     <div class="container">

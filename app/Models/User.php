@@ -12,6 +12,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+<<<<<<< HEAD
 
     const ID                    = "id";
     const FULLNAME              = "fullname";
@@ -20,6 +21,21 @@ class User extends Authenticatable
     const PASSWORD              = "password";
     const ROLE                  = "role";
     const ONLINE                = "online";
+=======
+    const ID                  = "id";
+    const FULLNAME            = "fullname";
+    const EMAIL               = "email";
+    const PHONE_NUMBER        = "phone_number";
+    const PASSWORD            = "password";
+    const ROLE                = "role";
+    const ONLINE              = "online";
+    const AVATAR              = "avatar";
+    const REMEMBER_TOKEN      = "remember_token";
+    const DELETED_AT          = "deleted_at";
+    const AVATAR_DEFAULT      = "/img/user/default.png";
+    const AVATAR_PATH         = "img/user";
+
+>>>>>>> 834d189c8b31db8c887ffd567ea85fe5fdee15b2
 
     /**
      * The attributes that are mass assignable.
@@ -27,9 +43,15 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        self::FULLNAME,
+        self::PASSWORD,
+        self::EMAIL,
+        self::PHONE_NUMBER,
+        self::ROLE,
+        self::ONLINE,
+        self::AVATAR,
+        self::REMEMBER_TOKEN,
+
     ];
 
     /**
@@ -38,8 +60,9 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        self::PASSWORD,
+        self::REMEMBER_TOKEN,
+        self::DELETED_AT,
     ];
 
     /**
