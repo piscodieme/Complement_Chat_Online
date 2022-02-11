@@ -26,6 +26,8 @@ Route::get('/account', function () {
     return view('account');
 });
 
+Route::post('_register/',[App\Http\Controllers\Auth\RegisterController::class, 'create']);
+
 Auth::routes();
 
 

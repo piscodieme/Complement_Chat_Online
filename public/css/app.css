@@ -6,7 +6,7 @@ body{
 }
 .login-left{
     border-radius: 20px;
-    width: 45%;
+   /*  width: auto; */
     height: 80%;
 }
 .login-image{
@@ -16,7 +16,7 @@ body{
 .left-side{
     float: left;
     height: auto;
-    width: 50%;
+    /* width: 50%; */
     background-color:rgb(252,138,60);
     border-radius: 45px 0;
 }
@@ -113,18 +113,19 @@ body{margin-top:20px;}
 
 .list-group-item:hover{
     background-color:rgb(252,138,60) !important ;
-    transform: scale(1,1.2);
+    transform: scale(1.1,1);
+    color:white;
 }
 .chat-messages {
     display: flex;
     flex-direction: column;
-    max-height: 600px;
+    max-height: 445px;
     overflow-y: scroll
 }
 .scroll-discussion{
     display: flex;
     flex-direction: column;
-    max-height: 70%;
+    max-height: 500px;
     overflow-y: scroll
 }
 
@@ -166,4 +167,7 @@ body{margin-top:20px;}
 }
 .border-top {
     border-top: 1px solid #dee2e6!important;
+}
+#input-send{
+    margin: none;
 }

@@ -1,31 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Projet</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+@extends('layouts.head')
 
-    <link 
-        rel="stylesheet"
-        href="css/bootstrap-grid.min.css"
-    />
-    <link 
-        rel="stylesheet"
-        href="css/bootstrap.min.css"
-    />
-    <link 
-        rel="stylesheet"
-        href="css/app.css"
-    />
-    
-</head>
-<body>
-    <div class="container bgcolor shadow-lg p-lg-5 col-md-12">
-        <!-- <h1 class="text-center">Chatter en Ligne</h1> -->
+@section('content')
+<div class="container bgcolor shadow-lg p-lg-5 col-md-12">
         <div class="row">
-            <div class="container shadow left-side">
+            <div class="container shadow left-side col-md-6 col-sm-12 col-xl-6 col-lg-12">
                 <div class="textLeft">
                     <h4 class="container mt-5 mb-3 text-white">
                        Bienvenu sur votre appli de chatte sur vos dessins Animés préférés
@@ -36,10 +14,16 @@
                 </div>
                 <img  class= "wallpaper" src="images/narutoBack.jpg" alt="wallpaper">
             </div>
-            <div class="container mt-lg-5 colorBg mb-lg-5 pt-lg-3 login-left ">
+            <div class="container mt-lg-5 colorBg mb-lg-5 pt-lg-3 login-left col-md-6 col-sm-12 col-xl-6 col-lg-12">
                 <img class="container image-cadre" src="/images/gaara.jpg" alt="test"/>
+                @if($errors->any())
+                    @foreach($errors->all() as $err)
+                        <li>{{$err}}</li>
+                    @endforeach
+                @endif
                 <a href="/"><span class="posText mb-2 mt-2">I Already have an Account</span></a>
-                <form action="">
+                <form action="_register" method="post">
+                    @csrf
                     <div class="form-group container">
                         
                         <input class="form-control" type="text" placeholder="Full Name" name="fullName" value="" required>
@@ -64,6 +48,5 @@
                 </form>
             </div>
         </div>
-    </div>
-</body>
-</html>
+</div>
+@endsection
