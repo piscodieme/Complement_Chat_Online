@@ -7,19 +7,19 @@
     <title>Chat Projet</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <link 
+    <link
         rel="stylesheet"
         href="css/bootstrap-grid.min.css"
     />
-    <link 
+    <link
         rel="stylesheet"
         href="css/bootstrap.min.css"
     />
-    <link 
+    <link
         rel="stylesheet"
         href="css/app.css"
     />
-    
+
 </head>
 <body>
     <div class="container bgcolor shadow-lg p-lg-5 col-md-12">
@@ -28,7 +28,7 @@
             <div class="container shadow left-side">
                 <div class="textLeft">
                     <h4 class="container mt-5 mb-3 text-white">
-                       Bienvenu sur votre appli de chatte sur vos dessins Animés préférés
+                       Bienvenu sur votre appli de chatte sur vos dessins Animés préférés {{ __('Register') }}
                     </h4>
                     <i><h5 class="container text-white">
                         Veuillez saissir vos informations pour créer votre compte !
@@ -39,23 +39,24 @@
             <div class="container mt-lg-5 colorBg mb-lg-5 pt-lg-3 login-left ">
                 <img class="container image-cadre" src="/images/gaara.jpg" alt="test"/>
                 <a href="/"><span class="posText mb-2 mt-2">I Already have an Account</span></a>
-                <form action="">
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
+
                     <div class="form-group container">
-                        
-                        <input class="form-control" type="text" placeholder="Full Name" name="fullName" value="" required>
+
+                        <input class="form-control" type="text" placeholder="Full Name" name="fullname" value="" required>
                     </div>
                     <div class="form-group container">
-                        
+
                         <input class="form-control" type="email" placeholder="Email" name="email" value="" required>
                     </div>
-                
                     <div class="form-group container">
-                        
-                        <input class="form-control" type="number" placeholder="Phone Number" name="telephone" value="" required>
+
+                        <input class="form-control" type="number" placeholder="Phone Number" name="phone_number" value="" required>
                     </div>
-                
+
                     <div class="form-group container">
-                       
+
                         <input class="form-control" type="password" name="password" placeholder="Password" value="" required>
                     </div>
                     <div class="container">

@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\User;
 
 class CreateUsersTable extends Migration
 {
@@ -15,10 +16,14 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string(User::FULLNAME);
+            $table->string(User::EMAIL)->unique();
+            $table->string(User::PHONE_NUMBER)->unique();
+            $table->string(User::AVATAR);
+            $table->integer(User::ROLE);
+            $table->boolean(User::ONLINE);
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string(User::PASSWORD);
             $table->rememberToken();
             $table->timestamps();
         });
