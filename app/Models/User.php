@@ -12,16 +12,6 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-<<<<<<< HEAD
-
-    const ID                    = "id";
-    const FULLNAME              = "fullname";
-    const EMAIL                 = "email";
-    const PHONE_NUMBER          = "phone_number";
-    const PASSWORD              = "password";
-    const ROLE                  = "role";
-    const ONLINE                = "online";
-=======
     const ID                  = "id";
     const FULLNAME            = "fullname";
     const EMAIL               = "email";
@@ -35,7 +25,6 @@ class User extends Authenticatable
     const AVATAR_DEFAULT      = "/img/user/default.png";
     const AVATAR_PATH         = "img/user";
 
->>>>>>> 834d189c8b31db8c887ffd567ea85fe5fdee15b2
 
     /**
      * The attributes that are mass assignable.

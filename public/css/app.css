@@ -66,8 +66,9 @@ input[type=text]{
 
 .wallpaper{
 height: 50%;
-width: 100%;
+width: 70%;
 border-radius: 50px 0;
+margin: auto;
 }
 .textLeft{
     height: 35%;

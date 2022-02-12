@@ -1,21 +1,32 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container bgcolor shadow-lg p-lg-5 col-md-12">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
+        <div class="container shadow left-side col-md-6 col-sm-12 col-xl-6 col-lg-12">
+            <div class="textLeft">
+                <h4 class="container mt-5 mb-3 text-white">
+                    Bienvenu sur votre appli de chatte sur vos dessins Animés préférés {{ __('Register') }}
+                </h4>
+                <i>
+                    <h5 class="container text-white">
+                        Veuillez saissir vos informations pour créer votre compte !
+                    </h5>
+                </i>
+            </div>
+            <div class="container-fluid">
+                <img  class= "wallpaper" src="images/wallkim.jpg" alt="wallpaper">
+            </div>
+        </div>
+        <div  class="container mt-lg-2 colorBg mb-lg-2 pt-lg-2 login-left col-md-6 col-sm-12 col-xl-6 col-lg-12">
+            <img class="container image-cadre" src="/images/imgreg.jpg" alt="test"/>
+            <a href="/login"><span class="posText mb-2 mt-2">I Already have an Account</span></a>
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
-                        <div class="row mb-3">
-                            <label for="fullname" class="col-md-4 col-form-label text-md-end">{{ __('Full name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="fullname" type="text" class="form-control @error('fullname') is-invalid @enderror" name="fullname" value="{{ old('fullname') }}" required autocomplete="full  name" autofocus>
+                            <div class="form-group container">
+                                <input id="fullname" placeholder="Full Name" type="text" class="form-control @error('fullname') is-invalid @enderror" name="fullname" value="{{ old('fullname') }}" required autocomplete="full  name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -23,13 +34,9 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('Phone number') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="phone" type="number" class="form-control @error('name') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone number" autofocus>
+                   
+                            <div class="form-group container">
+                                <input id="phone" placeholder="Phone Number" type="number" class="form-control @error('name') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone number" autofocus>
 
                                 @error('phone')
                                     <span class="invalid-feedback" role="alert">
@@ -37,13 +44,9 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                        
+                            <div class="form-group container">
+                                <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -51,35 +54,27 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
+                       
+                            <div class="form-group container">
+                                <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                        </div>
-
-
-
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+ 
+                        
+                            <div class="container">
+                                <button type="submit" class="btn btn-lg btn-block mt-lg-2 mb-lg-2 bgButton shadow text-white">
                                     {{ __('Register') }}
                                 </button>
                             </div>
-                        </div>
+                        
                     </form>
                 </div>
-            </div>
+            
         </div>
     </div>
 </div>

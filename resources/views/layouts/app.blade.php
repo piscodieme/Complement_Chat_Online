@@ -7,10 +7,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="../../js/jquery-3.5.1.min.js"></script>
+    <script src="../../js/monScript.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,6 +18,26 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- incomming -->
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Chat Projet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link 
+        rel="stylesheet"
+        href="css/bootstrap-grid.min.css"
+    />
+    <link 
+        rel="stylesheet"
+        href="css/bootstrap.min.css"
+    />
+    <link 
+        rel="stylesheet"
+        href="css/app.css"
+    />
+    
+    <!-- end -->
 </head>
 <body>
     <div id="app">
