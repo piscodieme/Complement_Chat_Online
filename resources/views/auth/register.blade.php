@@ -34,9 +34,9 @@
                                     </span>
                                 @enderror
                             </div>
-                   
+
                             <div class="form-group container">
-                                <input id="phone" placeholder="Phone Number" type="number" class="form-control @error('name') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone number" autofocus>
+                                <input id="phone" placeholder="Phone Number" type="number" class="form-control @error('name') is-invalid @enderror" name="phone_number" value="{{ old('phone') }}" required autocomplete="phone number" autofocus>
 
                                 @error('phone')
                                     <span class="invalid-feedback" role="alert">
@@ -44,7 +44,7 @@
                                     </span>
                                 @enderror
                             </div>
-                        
+
                             <div class="form-group container">
                                 <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
@@ -54,27 +54,27 @@
                                     </span>
                                 @enderror
                             </div>
-                       
+
                             <div class="form-group container">
                                 <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-                                
+
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
- 
-                        
+
+
                             <div class="container">
                                 <button type="submit" class="btn btn-lg btn-block mt-lg-2 mb-lg-2 bgButton shadow text-white">
                                     {{ __('Register') }}
                                 </button>
                             </div>
-                        
+
                     </form>
                 </div>
-            
+
         </div>
     </div>
 </div>

@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Support\MessageBag;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Arr;
 
 class User extends Authenticatable
 {
@@ -62,4 +64,36 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function friends(){
+        $allFriend = [];
+        //the message that he sends
+        $sender = Message::where(Message::SENDER,$this->id)
+                         ->get(Message::RECEIVER);
+        //the message that he receive another personne
+        $receiver = Message::where(Message::RECEIVER,$this->id)
+                           ->get(Message::SENDER);
+        //the message that he is the sender or receiver
+        foreach($sender as $send)
+         {
+            array_push($allFriend,$send->receiver);
+         }
+         foreach($receiver as $receiv)
+         {
+
+            array_push($allFriend,$receiv->sender);
+         }
+        return User::distinct()
+                   ->whereIn(User::ID,$allFriend)->get();
+    }
+
+    /**
+     * the people he never talked to
+     */
+
+     public function allUser(){
+
+        return User::where(User::ID,'<>',$this->id)->get();
+     }
 }
