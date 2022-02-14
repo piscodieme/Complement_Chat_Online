@@ -32,6 +32,7 @@ Auth::routes();
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/{user}/test',[App\Http\Controllers\MessageController::class,'index'])->name('test');
 
 Auth::routes();
 

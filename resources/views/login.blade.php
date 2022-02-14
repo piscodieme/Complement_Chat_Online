@@ -1,4 +1,4 @@
-@extends('layouts.head')
+<!-- {{-- @extends('layouts.head')
 
 @section('content')
 
@@ -12,7 +12,7 @@
 
                     <div class="form-group container">
 
-                        <input class="form-control" type="number" placeholder="Phone Number" name="telephone" value="" required>
+                        <input class="form-control" type="number" placeholder="Phonebbb Number" name="telephone" value="" required>
                     </div>
 
                     <div class="form-group container">
@@ -39,3 +39,5 @@
         </div>
 </div>
 @endsection
+ --}}
+ -->

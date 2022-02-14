@@ -49,7 +49,7 @@ class RegisterController extends Controller
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
-    { 
+    {
         return Validator::make($data, [
             'fullname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -64,13 +64,12 @@ class RegisterController extends Controller
      * @return \App\Models\User
      */
     protected function create(array $data)
-    {   
-        var_dump($data);
+    {
         return User::create([
             User::FULLNAME       => $data['fullname'],
             User::EMAIL          => $data['email'],
             User::PASSWORD       => Hash::make($data['password']),
-            User::PHONE_NUMBER   => $data['phone'],
+            User::PHONE_NUMBER   => $data['phone_number'],
             User::ROLE           => 0,
             User::AVATAR         => User::AVATAR_DEFAULT,
             User::ONLINE         => false,

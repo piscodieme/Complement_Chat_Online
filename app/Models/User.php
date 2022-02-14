@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Support\MessageBag;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Arr;
 
 class User extends Authenticatable
 {
@@ -62,4 +64,22 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    /**
+     * message
+     */
+
+     public function message(){
+        return $this->hasMany(Message::class,Message::RECEIVER)->where(Message::ISREAD,0);
+     }
+    /**
+     * the people he never talked to
+     */
+
+     public function allUser(){
+
+        return User::with('message')
+                   ->where(User::ID,'<>',$this->id)->get();
+     }#
 }

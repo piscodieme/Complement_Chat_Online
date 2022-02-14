@@ -1,4 +1,4 @@
-@extends('layouts.head')
+<!-- {{-- @extends('layouts.head')
 
 @section('content')
 <div class="container bgcolor shadow-lg p-lg-5 col-md-12">
@@ -49,3 +49,5 @@
         </div>
 </div>
 @endsection
+ --}}
+ -->
