@@ -9,8 +9,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="../../js/jquery-3.5.1.min.js"></script>
-    <script src="../../js/monScript.js"></script>
+   
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -36,7 +35,27 @@
         rel="stylesheet"
         href="css/app.css"
     />
-    
+    <script type = "text/javascript" src="{{asset('js/jquery-3.5.1.min.js')}}"></script>
+    <script type = "text/javascript" src="{{asset('js/monScript.js')}}"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("input").change(function(){
+            var pass = $("#phone_number").val();
+            var phone = $("#password").val();
+            if(pass !== '' && phone !== ''){
+                $("#button_id").attr("disabled",false);
+            }else{
+
+            } 
+        })
+       /*  var phone = document.querySelector("#phone_number");
+        var pass = document.querySelector("#password");
+        phone.addEventListener(function(){
+            //var phones = phone.value;
+            alert("test recup",phone.value)
+        }) */
+    })
+    </script>
     <!-- end -->
 </head>
 <body>
@@ -99,5 +118,8 @@
             @yield('content')
         </main>
     </div>
+    
+    
+   
 </body>
 </html>

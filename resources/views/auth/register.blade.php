@@ -18,7 +18,7 @@
                 <img  class= "wallpaper" src="images/wallkim.jpg" alt="wallpaper">
             </div>
         </div>
-        <div  class="container mt-lg-2 colorBg mb-lg-2 pt-lg-2 login-left col-md-6 col-sm-12 col-xl-6 col-lg-12">
+        <div  class="container mt-lg-1 colorBg mb-lg-1 pt-lg-1 login-left col-md-6 col-sm-12 col-xl-6 col-lg-12">
             <img class="container image-cadre" src="/images/imgreg.jpg" alt="test"/>
             <a href="/login"><span class="posText mb-2 mt-2">I Already have an Account</span></a>
                 <div class="card-body">
@@ -56,7 +56,7 @@
                             </div>
                        
                             <div class="form-group container">
-                                <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="passwordRegister" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                                 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -67,7 +67,7 @@
  
                         
                             <div class="container">
-                                <button type="submit" class="btn btn-lg btn-block mt-lg-2 mb-lg-2 bgButton shadow text-white">
+                                <button id="button_id_register" type="submit" class="btn btn-lg btn-block mt-lg-2 mb-lg-2 bgButton shadow text-white" disabled>
                                     {{ __('Register') }}
                                 </button>
                             </div>

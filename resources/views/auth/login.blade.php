@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="container mt-lg-5 colorBg login-left col-md-6 col-sm-12 col-xl-6 col-lg-12 col-12">
             <img class="container image-cadre" src="/images/imageLogin.jpg" alt="test"/>
-            <a href="/registration"><span class="posText mb-2 mt-2">Create Account</span></a>
+            <a href="/register"><span class="posText mb-2 mt-2">Create Account</span></a>
             <form method="POST" action="{{ route('login') }}">
              @csrf
                 <div  class="form-group container">
@@ -42,7 +42,7 @@
 
                         
                 <div class="container">
-                    <button id="button_id" class="btn btn-lg btn-block mt-lg-2 mb-lg-2 bgButton shadow text-white">
+                    <button id="button_id" class="btn btn-lg btn-block mt-lg-2 mb-lg-2 bgButton shadow text-white" disabled>
                         {{ __('Login') }}
                     </button>
 
@@ -72,5 +72,23 @@
         </div>
     </div>
 </div>
-    
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("input").change(function(){
+            var pass = $("#phone_number").val();
+            var phone = $("#password").val();
+            if(pass !== '' && phone !== ''){
+                $("#button_id").attr("disabled",false);
+            }else{
+
+            } 
+        })
+       /*  var phone = document.querySelector("#phone_number");
+        var pass = document.querySelector("#password");
+        phone.addEventListener(function(){
+            //var phones = phone.value;
+            alert("test recup",phone.value)
+        }) */
+    })
+</script>    
 @endsection
