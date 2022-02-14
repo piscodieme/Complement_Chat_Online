@@ -4,18 +4,18 @@
 <div class="container bgcolor shadow-lg p-lg-5 col-md-12">
     <div class="row justify-content-center">
         <div class="container shadow left-side col-md-6 col-sm-12 col-xl-6 col-lg-12">
-            <div class="textLeft">
-                <h4 class="container mt-5 mb-3 text-white">
-                    Bienvenu sur votre appli de chatte sur vos dessins Animés préférés {{ __('Register') }}
-                </h4>
-                <i>
-                    <h5 class="container text-white">
-                        Veuillez saissir vos informations pour créer votre compte !
-                    </h5>
-                </i>
+            <div class="textLeft textInfo">
+                <h5 class="container mt-1 mb-1 ">
+                    <span> Bienvenu sur votre appli de chatte sur vos dessins Animés préférés {{ __('Register') }}</span>
+                </h5>
             </div>
-            <div class="container-fluid">
+            <div class="container">
                 <img  class= "wallpaper" src="images/wallkim.jpg" alt="wallpaper">
+            </div>
+            <div class="textInfo">
+                <h5 class="container">
+                   <i> Veuillez saissir vos informations pour créer votre compte !</i>
+                </h5>
             </div>
         </div>
         <div  class="container mt-lg-2 colorBg mb-lg-2 pt-lg-2 login-left col-md-6 col-sm-12 col-xl-6 col-lg-12">

@@ -66,34 +66,20 @@ class User extends Authenticatable
     ];
 
 
-    public function friends(){
-        $allFriend = [];
-        //the message that he sends
-        $sender = Message::where(Message::SENDER,$this->id)
-                         ->get(Message::RECEIVER);
-        //the message that he receive another personne
-        $receiver = Message::where(Message::RECEIVER,$this->id)
-                           ->get(Message::SENDER);
-        //the message that he is the sender or receiver
-        foreach($sender as $send)
-         {
-            array_push($allFriend,$send->receiver);
-         }
-         foreach($receiver as $receiv)
-         {
+    /**
+     * message
+     */
 
-            array_push($allFriend,$receiv->sender);
-         }
-        return User::distinct()
-                   ->whereIn(User::ID,$allFriend)->get();
-    }
-
+     public function message(){
+        return $this->hasMany(Message::class,Message::RECEIVER)->where(Message::ISREAD,0);
+     }
     /**
      * the people he never talked to
      */
 
      public function allUser(){
 
-        return User::where(User::ID,'<>',$this->id)->get();
-     }
+        return User::with('message')
+                   ->where(User::ID,'<>',$this->id)->get();
+     }#
 }

@@ -58,14 +58,14 @@ class Message extends Model
      * the user that receive the message
      */
     public function receiver(){
-        return $this->hasOne(User::class);
+        return $this->hasOne(User::class,User::ID,Message::RECEIVER);
     }
     /**
      * @sender   user
      * the user that send the message
      */
     public function sender(){
-        return  $this->hasOne(User::class);
+        return  $this->hasOne(User::class,User::ID,Message::SENDER);
     }
 
 }

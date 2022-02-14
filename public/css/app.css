@@ -64,18 +64,30 @@ input[type=text]{
     margin-bottom: 5%;
 }
 
+.textInfo{
+    background-color: white;
+    color: black;
+    border-radius: 45px;
+    width: 80%;
+    margin:5% 0 5% 0;
+    padding: 5% 0 5% 0;
+
+}
+
 .wallpaper{
-height: 50%;
-width: 70%;
-border-radius: 50px 0;
-margin: auto;
+height: auto;
+width: 90%;
+border-radius: 10px;
+margin-left: 0;
+filter: opacity(80%);
 }
 .textLeft{
-    height: 35%;
+
 }
 
 .bgcolor{
     background-color: rgb(235, 187, 155);
+    filter: opacity(1);
 }
 .colorBg{
     background-color: rgb(235, 187, 155);

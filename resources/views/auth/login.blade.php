@@ -9,7 +9,7 @@
             <form method="POST" action="{{ route('login') }}">
              @csrf
                 <div  class="form-group container">
-                    <input id="phone_number" type="number" placeholder="Phone Number" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" required autocomplete="phone_number" autofocus>
+                    <input id="phone_number" type="number" placeholder="Phone ssNumber" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" required autocomplete="phone_number" autofocus>
 
                         @error('phone_number')
                             <span class="invalid-feedback" role="alert">
@@ -26,7 +26,7 @@
                                     </span>
                         @enderror
                 </div>
-                        
+
 
                         <!-- <div class="row mb-3">
                             <div class="col-md-6 offset-md-4">
@@ -40,7 +40,7 @@
                             </div>
                         </div> -->
 
-                        
+
                 <div class="container">
                     <button id="button_id" class="btn btn-lg btn-block mt-lg-2 mb-lg-2 bgButton shadow text-white">
                         {{ __('Login') }}
@@ -54,13 +54,13 @@
                         </a>
                         @endif
                 </div>
-                        
+
             </form>
         </div>
         <!-- left side -->
-        <div class="container shadow left-side col-md-6 col-sm-12 col-xl-6 col-lg-12 col-12">
-                <div class="textLeft">
-                    <h4 class="container mt-5 mb-3 text-white">
+        <div class="container shadow left-side text-infocol-md-6 col-sm-12 col-xl-6 col-lg-12 col-12">
+                <div class="textLeft text-info">
+                    <h4 class="container mt-5 mb-3 text-white ">
                        Bienvenu sur votre appli de chatte sur vos dessins Animés préférés
                     </h4>
                     <i><h5 class="container text-white">
@@ -72,5 +72,5 @@
         </div>
     </div>
 </div>
-    
+
 @endsection

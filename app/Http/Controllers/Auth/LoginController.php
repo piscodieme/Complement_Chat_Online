@@ -42,8 +42,4 @@ class LoginController extends Controller
     {
         return 'phone_number';
     }
-    public function showLoginForm()
-    {
-        return view('login');
-    }
 }
