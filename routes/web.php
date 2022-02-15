@@ -14,24 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
-
-Route::get('/registration', function () {
-    return view('registration');
-});
-
-Route::get('/account', function () {
-    return view('account');
-});
-
 Route::post('_register/',[App\Http\Controllers\Auth\RegisterController::class, 'create']);
 
 Auth::routes();
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/{user}/test',[App\Http\Controllers\MessageController::class,'index'])->name('test');
 
 Auth::routes();

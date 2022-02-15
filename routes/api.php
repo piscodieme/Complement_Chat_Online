@@ -18,5 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::post('/message/send/{sender}/{receiver}',[MessageController::class,'sendMessage']);
 
 Route::get('/message/{sender}/{receiver}',[MessageController::class,'message']);
+Route::get('/message/others/{currentUser}/{discute}',[MessageController::class,'otherUsers']);
+

@@ -81,5 +81,12 @@ class User extends Authenticatable
 
         return User::with('message')
                    ->where(User::ID,'<>',$this->id)->get();
-     }#
+     }
+
+     public function otherUser($id){
+         return User::with('message')
+                    ->where(User::ID,'<>',$this->id)
+                    ->where(User::ID,'<>',$id)
+                    ->get();
+     }
 }
