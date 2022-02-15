@@ -1,4 +1,4 @@
-@extends('layouts.head')
+@extends('layouts.app')
 
 @section('content')
 <main class="content">
@@ -103,7 +103,7 @@
 					<div class="flex-grow-0 py-3 px-4 border-top">
 						<div id="input-send" class="input-group">
 							<input id="input-send" type="text" class="form-control AnnulMarge" placeholder="Type your message">
-							<button class="btn appel resize text-white">Send</button>
+							<button id="btn-send" class="btn appel resize text-white">Send</button>
 						</div>
 					</div>
 
