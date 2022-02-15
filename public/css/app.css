@@ -5,7 +5,7 @@ body{
     box-sizing:content-box;
 }
 .login-left{
-    border-radius: 20px;
+    border-radius: 0;
    /*  width: auto; */
     height: 80%;
 }
@@ -16,21 +16,21 @@ body{
 .left-side{
     float: left;
     height: auto;
-    /* width: 50%; */
     background-color:rgb(252,138,60);
-    border-radius: 45px 0;
+    z-index: 10;
 }
 
 .image-cadre{
-    width: 30%;
+    width: 36%;
     height: 30%;
-    margin-left: 35%;
+    margin-left: 32%;
+    margin-top: 5%;
     border-radius: 50%;
 }
 
 input[type=password]{
     border-radius: 25px;
-    height: 55px;
+    height: 50px;
     margin-left: 7%;
     margin-right: 7%;
     width: 86%;
@@ -39,7 +39,7 @@ input[type=password]{
 
 input[type=email]{
     border-radius: 25px;
-    height: 55px;
+    height: 50px;
     margin-left: 7%;
     margin-right: 7%;
     width: 86%;
@@ -48,7 +48,7 @@ input[type=email]{
 
 input[type=number]{
     border-radius: 25px;
-    height: 55px;
+    height: 50px;
     margin-left: 7%;
     margin-right: 7%;
     width: 86%;
@@ -57,7 +57,7 @@ input[type=number]{
 
 input[type=text]{
     border-radius: 25px;
-    height: 55px;
+    height: 50px;
     margin-left: 7%;
     margin-right: 7%;
     width: 86%;
@@ -67,30 +67,37 @@ input[type=text]{
 .textInfo{
     background-color: white;
     color: black;
-    border-radius: 45px;
-    width: 80%;
+    border-radius: 0;
+    width: 100%;
     margin:5% 0 5% 0;
-    padding: 5% 0 5% 0;
-
+    padding: 5% 0 2% 0;
+   
+    z-index: 2;
 }
 
 .wallpaper{
 height: auto;
-width: 90%;
-border-radius: 10px;
+width: 100%;
+border-radius: 50px;
 margin-left: 0;
-filter: opacity(80%);
+filter: opacity(50%);
 }
 .textLeft{
 
 }
 
 .bgcolor{
-    background-color: rgb(235, 187, 155);
-    filter: opacity(1);
+   
+    filter: opacity(80%);
+    background-color: rgb(236, 234, 229);
+    z-index: -1;
+    border-radius: 45px;
+    background-size: 100%;
+
 }
 .colorBg{
     background-color: rgb(235, 187, 155);
+    z-index: 999;
 }
 .bgButton{
     background-color:rgb(252,138,60);
@@ -158,6 +165,11 @@ body{margin-top:20px;}
 }
 .AnnulMarge{
     margin-right: 0 !important;
+}
+
+.taille{
+    width: 80%;
+    margin-left: 10%;
 }
 
 .resize{

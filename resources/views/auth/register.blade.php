@@ -1,25 +1,30 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container bgcolor shadow-lg p-lg-5 col-md-12">
-    <div class="row justify-content-center">
-        <div class="container shadow left-side col-md-6 col-sm-12 col-xl-6 col-lg-12">
-            <div class="textLeft textInfo">
-                <h5 class="container mt-1 mb-1 ">
-                    <span> Bienvenu sur votre appli de chatte sur vos dessins Animés préférés {{ __('Register') }}</span>
-                </h5>
+<div class="container bgcolor shadow p-lg-5 col-md-12">
+    <div class="row justify-content-center taille">
+        <div class="container shadow left-side col-md-6 col-md-offset-6 col-sm-12 col-sm-pull-6 col-xl-6 col-lg-12 col-xs-12">
+            <div class="textLeft textInfo shadow">
+                <h6 class="container">
+                    <span> Bienvenu sur votre application de chatte sur votre déssin Animé préféré NARUTO</span>
+                </h6>
             </div>
-            <div class="container">
-                <img  class= "wallpaper" src="images/wallkim.jpg" alt="wallpaper">
-            </div>
-            <div class="textInfo">
-                <h5 class="container">
+            <div class="textInfo shadow">
+                <h6 class="container">
                    <i> Veuillez saissir vos informations pour créer votre compte !</i>
-                </h5>
+                </h6>
+            </div>
+            <div class="row">
+                <div class="container col-md-11 mt-3">
+                    <img  class= "wallpaper" src="images/minato.jpg" alt="wallpaper">
+                </div>
+               <!--  <div class="container shadow col-md-12">
+                    <img  class= "wallpaper" src="images/kakashi.jpg" alt="wallpaper">
+                </div> -->
             </div>
         </div>
-        <div  class="container mt-lg-1 colorBg mb-lg-1 pt-lg-1 login-left col-md-6 col-sm-12 col-xl-6 col-lg-12">
-            <img class="container image-cadre" src="/images/imgreg.jpg" alt="test"/>
+        <div  class="container colorBg pt-lg-1 login-left col-md-6 col-md-offset-6 col-sm-12 col-sm-pull-6 col-xl-6 col-lg-12 col-xs-12">
+            <img class="container image-cadre" src="/images/imageLogin.jpg" alt="test"/>
             <a href="/login"><span class="posText mb-2 mt-2">I Already have an Account</span></a>
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">

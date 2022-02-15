@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="container bgcolor shadow-lg p-lg-5 col-md-12">
-    <div class="row justify-content-center">
-        <div class="container mt-lg-5 colorBg login-left col-md-6 col-sm-12 col-xl-6 col-lg-12 col-12">
+    <div class="row justify-content-center taille">
+        <div class="container colorBg login-left pt-lg-5 pb-lg-5 col-md-6 col-sm-12 col-xl-6 col-lg-12 col-12">
             <img class="container image-cadre" src="/images/imageLogin.jpg" alt="test"/>
             <a href="/register"><span class="posText mb-2 mt-2">Create Account</span></a>
             <form method="POST" action="{{ route('login') }}">
              @csrf
                 <div  class="form-group container">
-                    <input id="phone_number" type="number" placeholder="Phone ssNumber" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" required autocomplete="phone_number" autofocus>
+                    <input id="phone_number" type="number" placeholder="Phone Number" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" required autocomplete="phone_number" autofocus>
 
                         @error('phone_number')
                             <span class="invalid-feedback" role="alert">
@@ -58,16 +58,22 @@
             </form>
         </div>
         <!-- left side -->
-        <div class="container shadow left-side text-infocol-md-6 col-sm-12 col-xl-6 col-lg-12 col-12">
-                <div class="textLeft text-info">
-                    <h4 class="container mt-5 mb-3 text-white ">
-                       Bienvenu sur votre appli de chatte sur vos dessins Animés préférés
-                    </h4>
-                    <i><h5 class="container text-white">
-                        Veuillez saissir vos informations de connexion pour commencer à discuter !
-                    </h5></i>
+        <div class="container shadow left-side col-md-6 col-sm-12 col-xl-6 col-lg-12 col-12">
+                <div class="textLeft textInfo shadow">
+                    <h6 class="container">
+                       Bienvenu sur votre application de chatte sur votre déssin Animé préféré NARUTO
+                    </h6>
                 </div>
-                <img  class= "wallpaper" src="images/narutoBack.jpg" alt="wallpaper">
+                <div class="textLeft textInfo shadow">
+                <i><h6 class="container">
+                        Veuillez saissir vos informations de connexion pour commencer à discuter !
+                    </h6></i>
+                </div>
+                <div class="row">
+                    <div class="container col-md-11 mt-3">
+                        <img  class= "wallpaper" src="images/wallpaper.jpg" alt="wallpaper">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
