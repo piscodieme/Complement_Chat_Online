@@ -21,7 +21,23 @@
 						</div>
 					</div>
                     <div class="scroll-discussion p-1" id="others">
+                        @foreach ($others as $other )
+                            <button  class="list-group-item list-group-item-action border-0 shadow bg-light elmt-scrool" onclick="changeUser({{ $other->id }})">
+                                @if ( count($other->message) != 0)
+                                   <div class="badge appel float-right">{{ count($other->message) }}</div>
+                                @endif
 
+                                <div class="d-flex align-items-start">
+                                    <img src="/images/narutoBack.jpg" class="rounded-circle mr-1" alt="Vanessa Tucker" width="40" height="40">
+                                    <div class="flex-grow-1 ml-3">
+                                        {{ $other->fullname }}
+                                        @if($other->online == 1)
+                                            <div class="small"><span class="fas fa-circle chat-online" style="color: orange"> Online</span></div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </button>
+                        @endforeach
                     </div>
 					<hr class="d-block d-lg-none mt-1 mb-0">
 				</div>
@@ -32,7 +48,7 @@
 								<img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
 							</div>
 							<div class="flex-grow-1 pl-3">
-								<strong>Sharon Lessman</strong>
+								<strong id="selected">Sharon Lessman</strong>
 								<div class="text-muted small"><em>Typing...</em></div>
 							</div>
 							<div>
@@ -54,13 +70,8 @@
 
 					<div class="flex-grow-0 py-3 px-4 border-top">
 						<div id="input-send" class="input-group">
-<<<<<<< HEAD
-							<input id="input-send" type="text" class="form-control AnnulMarge" placeholder="Type your message" >
-							<button class="btn appel resize text-white">Send</button>
-=======
-							<input id="input-send" type="text" class="form-control AnnulMarge" placeholder="Type your message">
-							<button id="btn-send" class="btn appel resize text-white">Send</button>
->>>>>>> 04d9df1cba3f3ab62c442da17fe372fa5e283da6
+							<input id="input_send" type="text" class="form-control AnnulMarge" placeholder="Type your message">
+							<button onclick="send()" id="btn_send" class="btn appel resize text-white" disabled >Send</button>
 						</div>
 					</div>
 
@@ -72,6 +83,7 @@
 @endsection
 <script>
   var currentUser = @json($user);
+  var userToDiscut = 0;
   async function getData(url){
       return await fetch(url).then((res) =>{
           return res.json();
@@ -91,11 +103,21 @@
           return res.json();
       })
   }
+  /***/
+  function send(){
+      let message = document.getElementById('input_send');
+          url = `http://127.0.0.1:8000/api/message/send/${currentUser.id}/${userToDiscut}`;
+          sended = sendMessage(message.value,url);
+          sended.then((res)=>{
+              message.value = '';
+          })
+  }
   /*
    function de mise en jour de chat
   */
   function discution(user1){
-      let url = `http://127.0.0.1:8000/api/message/${currentUser.id}/${user1}`;
+      if(user1 != 0){
+        let url = `http://127.0.0.1:8000/api/message/${currentUser.id}/${user1}`;
       let x = getData(url);
         x.then((res)=>{
             let chatMessage = document.getElementById('chatMessage');
@@ -105,7 +127,7 @@
                     let div = `<div class="chat-message-right pb-4">
                                         <div class="m-2">
                                             <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
-                                            <div class="text-muted small text-nowrap mt-2">${messagea.created_at.substring(14, 19)} am</div>
+                                            <div class="text-muted small text-nowrap mt-2">${messagea.created_at.substring(11, 16)} am</div>
                                         </div>
                                         <div class="flex-shrink-1 bg-light rounded py-2 px-2 mr-3">
                                             <!-- <div class="font-weight-bold mb-1">You</div> -->
@@ -118,7 +140,7 @@
                     let div = `<div class="chat-message-left pb-4">
                                         <div class="m-2">
                                             <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
-                                            <div class="text-muted small text-nowrap mt-2">${messagea.created_at.substring(14, 19)} am</div>
+                                            <div class="text-muted small text-nowrap mt-2">${messagea.created_at.substring(11, 16)} am</div>
                                         </div>
                                         <div class="flex-shrink-1 rounded py-2 px-2 ml-3 chat-color">
                                             <!-- <div class="font-weight-bold mb-1">You</div> -->
@@ -133,11 +155,14 @@
         .catch((err)=>{
             console.log(err);
         })
-        }
+      }
+
+    }
 
 
   function others(user1){
-    let url = `http://127.0.0.1:8000/api/message/others/${currentUser.id}/${user1}`;
+      if(user1 != 0){
+        let url = `http://127.0.0.1:8000/api/message/others/${currentUser.id}/${user1}`;
     let x = getData(url);
         x.then((res)=>{
             let othersdiv = document.getElementById('others');
@@ -151,7 +176,7 @@
                 if(online == 1){
                     online = `<div class="small"><span class="fas fa-circle chat-online" style="color: orange"> Online</span></div>`;
                 }
-                html+= `<a href="#" class="list-group-item list-group-item-action border-0 shadow bg-light elmt-scrool">
+                html+= `<button class="list-group-item list-group-item-action border-0 shadow bg-light elmt-scrool" onclick="changeUser(${other.id})">
                             ${nbrMsgNotRead}
                                 <div class="d-flex align-items-start">
                                     <img src="/images/narutoBack.jpg" class="rounded-circle mr-1" alt="Vanessa Tucker" width="40" height="40">
@@ -160,20 +185,29 @@
                                         ${online}
                                     </div>
                                 </div>
-                            </a>`;
+                            </button>`;
             }
             othersdiv.innerHTML = html;
         })
-  }
-  let inpSend = document.getElementById('input-send');
-  let i = 1;
-  var intervalID = setInterval(myCallback, 5000,i );
-  function myCallback(a)
-        {
-        // Your code here
-        // Parameters are purely optional.
-        others(a);
-        discution(a);
+      }
 
-        }
+  }
+
+  let i = 1;
+  function changeUser(user){
+    userToDiscut = user;
+    let selected = document.getElementById('selected');
+        //selected.value =
+  }
+
+  var intervalID = setInterval(myCallback, 5000,userToDiscut );
+    function myCallback(a)
+            {
+            // Your code here
+            // Parameters are purely optional.
+            a = userToDiscut;
+            others(a);
+            discution(a);
+
+            }
 </script>

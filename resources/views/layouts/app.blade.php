@@ -8,8 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-   
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,20 +17,20 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- incomming -->
-    
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Chat Projet</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <link 
+    <link
         rel="stylesheet"
         href="css/bootstrap-grid.min.css"
     />
-    <link 
+    <link
         rel="stylesheet"
         href="css/bootstrap.min.css"
     />
-    <link 
+    <link
         rel="stylesheet"
         href="css/app.css"
     />
@@ -46,7 +45,7 @@
                 $("#button_id").attr("disabled",false);
             }else{
 
-            } 
+            }
         })
        /*  var phone = document.querySelector("#phone_number");
         var pass = document.querySelector("#password");
@@ -118,8 +117,8 @@
             @yield('content')
         </main>
     </div>
-    
-    
-   
+
+
+
 </body>
 </html>

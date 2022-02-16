@@ -2,6 +2,9 @@
 
 $(function() {
     $("input").on("input",function(){
+
+    var input_value = $("#input_send").val();
+
         /* login */
     var pass = $("#phone_number").val();
     var phone = $("#password").val();
@@ -10,16 +13,22 @@ $(function() {
     var phoneNum = $("#phone").val();
     var email = $("#email").val();
     var name = $("#fullname").val();
-    
+
+    if(input_value){
+        $("#btn_send").attr("disabled",false);
+    }else{
+        $("#btn_send").attr("disabled",true);
+    }
+
     if(password && phoneNum && email && name){
         $("#button_id_register").attr("disabled",false);
     }else{
-       
+        $("#button_id_register").attr("disabled",true);
     }
     if(pass && phone){
         $("#button_id").attr("disabled",false);
     }else{
-       
+        $("#button_id").attr("disabled",true);
     }
 })
 $("#input-send").on("input",()=>{
@@ -29,4 +38,4 @@ $("#input-send").on("input",()=>{
     }
 })
 })
-    
+

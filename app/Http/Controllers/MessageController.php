@@ -31,6 +31,10 @@ class MessageController extends Controller
                             ->orWhere([[Message::RECEIVER,'=',$sender->id],
                                        [Message::SENDER,'=',$receiver->id]])
                             ->get();
+            foreach($messages as $message){
+                $message->is_read = 1;
+                $message->save();
+            }
             return response()->json([
                 'message' => $messages,
                 'status'  => 200,
