@@ -12,17 +12,12 @@
 
 					<div class="px-1 d-none d-md-block">
 						<div class="d-flex align-items-center">
-							<div class="flex-grow-1">
-								<input type="text" class="form-control my-2" placeholder="Search...">
-							</div>
-							<div class="flex-grow-1">
-								<input type="file" class="form-control my-2 chat-color" accept=".jpg, .jpeg, .png">
-							</div>
+
 						</div>
 					</div>
                     <div class="scroll-discussion p-1" id="others">
                         @foreach ($others as $other )
-                            <button  class="list-group-item list-group-item-action border-0 shadow bg-light elmt-scrool" onclick="changeUser({{ $other->id }})">
+                            <button   class="list-group-item list-group-item-action border-0 shadow bg-light elmt-scrool listBtn" onclick="changeUser({{ $other->id }})">
                                 @if ( count($other->message) != 0)
                                    <div class="badge appel float-right">{{ count($other->message) }}</div>
                                 @endif
@@ -47,12 +42,15 @@
 							<div class="position-relative">
 								<img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
 							</div>
-							<div class="flex-grow-1 pl-3">
-								<strong id="selected">Sharon Lessman</strong>
-								<div class="text-muted small"><em>Typing...</em></div>
+							<div class="flex-grow-1 pl-3" id="utilisateur">
+
 							</div>
 							<div>
-								<button class="btn mr-1 px-3 appel text-white">Disconnect</button>
+								<button class="btn mr-1 px-3 appel text-white"><a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                  document.getElementById('logout-form').submit();">
+                                     {{ __('Logout') }}
+                                 </a></button>
 								{{-- <button class="btn btn-lg mr-1 px-3 d-none d-md-inline-block appel"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-video feather-lg"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg></button>
 								<button class="btn btn-light border btn-lg px-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal feather-lg"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button> --}}
 							</div>
@@ -60,7 +58,7 @@
 					</div>
 
 					<div class="position-relative">
-						<div class="chat-messages p-4" id="chatMessage">
+						<div class="chat-messages p-4" id="chatMessage" scrollDown>
 
 
 
@@ -68,10 +66,10 @@
 						</div>
 					</div>
 
-					<div class="flex-grow-0 py-3 px-4 border-top">
-						<div id="input-send" class="input-group">
+					<div class="flex-grow-0 py-3 px-4 border-top" id="divBtn">
+                        <div id="input-send" class="input-group">
 							<input id="input_send" type="text" class="form-control AnnulMarge" placeholder="Type your message">
-							<button onclick="send()" id="btn_send" class="btn appel resize text-white" disabled >Send</button>
+							<button onclick="send()" id="btn_send" class="btn appel resize text-white" disabled  type="submit">Send</button>
 						</div>
 					</div>
 
@@ -83,13 +81,14 @@
 @endsection
 <script>
   var currentUser = @json($user);
+  var userss = @json($others);
+
   var userToDiscut = 0;
   async function getData(url){
       return await fetch(url).then((res) =>{
           return res.json();
       })
   }
-
   async function sendMessage(message,url) {
     return await fetch(url,{
         method : 'POST',
@@ -124,33 +123,33 @@
             let html = '';
             for(const messagea of res.message){
                 if(messagea.sender.id == currentUser.id){
-                    let div = `<div class="chat-message-right pb-4">
-                                        <div class="m-2">
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
-                                            <div class="text-muted small text-nowrap mt-2">${messagea.created_at.substring(11, 16)} am</div>
-                                        </div>
-                                        <div class="flex-shrink-1 bg-light rounded py-2 px-2 mr-3">
+                    let div = `<div class="chat-message-right pb-2">
+
+                                        <div class="flex-shrink-1 bg-light py-2 px-2 mr-3 design shadow">
                                             <!-- <div class="font-weight-bold mb-1">You</div> -->
                                             ${messagea.message}
+                                            <div class="m-1 ">
+                                                <div class="text-muted small text-nowrap mt-2 reverseHeure">${messagea.created_at.substring(11, 16)}</div>
+                                            </div>
                                         </div>
                                     </div>`;
                     html += div;
 
                 }else{
-                    let div = `<div class="chat-message-left pb-4">
-                                        <div class="m-2">
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
-                                            <div class="text-muted small text-nowrap mt-2">${messagea.created_at.substring(11, 16)} am</div>
-                                        </div>
-                                        <div class="flex-shrink-1 rounded py-2 px-2 ml-3 chat-color">
-                                            <!-- <div class="font-weight-bold mb-1">You</div> -->
+                    let div = `<div class="chat-message-left pb-2">
+
+                                        <div class="flex-shrink-1 py-2 px-2 ml-3 chat-color text-white design shadow">
                                             ${messagea.message}
+                                            <div class="m-2">
+                                            <div class="text-muted small mt-2 text-white">${messagea.created_at.substring(11, 16)}</div>
+                                        </div>
                                         </div>
                                     </div>`;
                     html += div;
                 }
             }
             chatMessage.innerHTML = html;
+
         })
         .catch((err)=>{
             console.log(err);
@@ -193,14 +192,19 @@
 
   }
 
-  let i = 1;
   function changeUser(user){
     userToDiscut = user;
-    let selected = document.getElementById('selected');
-        //selected.value =
-  }
+    let selected = document.getElementById('utilisateur');
 
-  var intervalID = setInterval(myCallback, 5000,userToDiscut );
+    let fullname = userss.find(x => x.id === user ).fullname
+    selected.innerHTML = `<strong id="selected">${fullname}</strong>`;
+  }
+/*
+ cette fonction permet de faire une appelle sequentiel des fonctions
+ @others()  cette fonction contient la liste des autres utilisateur dans l'application
+ @discution() cette function renvoie la  liste de discussion de l'utilsateur selectioné
+   ****/
+  var intervalID = setInterval(myCallback, 3000,userToDiscut );
     function myCallback(a)
             {
             // Your code here

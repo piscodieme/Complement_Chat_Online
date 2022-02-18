@@ -37,5 +37,18 @@ $("#input-send").on("input",()=>{
         $("#btn-send").attr("disabled",false);
     }
 })
+
+/** hide and show div button send  */
+
+$("#divBtn").hide();
+
+$(".listBtn").on("click",function () {
+   $("#divBtn").show();
 })
+
+})
+
+/***logique du projet */
+
+
 
