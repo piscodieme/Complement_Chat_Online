@@ -204,7 +204,7 @@
  @others()  cette fonction contient la liste des autres utilisateur dans l'application
  @discution() cette function renvoie la  liste de discussion de l'utilsateur selectioné
    ****/
-  var intervalID = setInterval(myCallback, 3000,userToDiscut );
+  var intervalID = setInterval(myCallback, 5000,userToDiscut );
     function myCallback(a)
             {
             // Your code here
